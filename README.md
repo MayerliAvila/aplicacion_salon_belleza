@@ -2,6 +2,15 @@
 
 Sistema web desarrollado para la administración de servicios de peluquería, gestión de citas y registro de facturación. Este proyecto permite optimizar la atención al cliente y mejorar el control interno del salón.
 
+## 🌐 Demo en vivo
+
+🔗 https://aplicacionsalon.gamer.gd/
+
+## 📸 Vista del sistema
+
+<img width="1850" height="925" alt="image" src="https://github.com/user-attachments/assets/4e188ca5-f6df-444f-9680-824e4b82c6db" />
+
+
 ## 📌 Descripción
 
 Esta aplicación permite a un salón de belleza:
