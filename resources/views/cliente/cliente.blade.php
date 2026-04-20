@@ -19,21 +19,17 @@
 
     <!-- 📦 CONTENIDO SERVICIOS -->
     <div id="servicios" class="tab-content-box">
-        <div class="row">
+        <div class="row ">
             @forelse($servicios as $s)
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm border-0 h-100">
-                    @if($s->imagen)
-                        <img src="{{ asset('storage/' . $s->imagen) }}" class="card-img-top" style="height: 180px; object-fit: cover;">
-                    @else
-                        <div class="bg-light text-muted d-flex align-items-center justify-content-center" style="height: 180px;">Sin imagen</div>
-                    @endif
-
-                    <div class="card-body text-center d-flex flex-column">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 shadow border-0">
+                    <div class="card-body text-center">
                         <h5 class="fw-bold">{{ $s->nombresServicio }}</h5>
-                        <p class="small text-muted flex-grow-1">{{ $s->descripcion }}</p>
-                        <p class="mb-1 text-primary fw-bold fs-5">${{ number_format($s->precio, 0, ',', '.') }}</p>
-
+                        <p class="small text-muted flex-grow-1">{{ $s->descripcion }}</p> 
+    					<div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-light text-dark border">⏱️ {{ $s->duracionMinuto }} min</span>
+                        <span class="fw-bold text-primary fs-5">${{ number_format($s->precio, 0, ',', '.') }}</span>
+                    </div>
                         <button class="btn btn-primary w-100 mt-2" onclick="abrirAgendamiento({{ json_encode($s) }})">
                             📅 Agendar Ahora
                         </button>

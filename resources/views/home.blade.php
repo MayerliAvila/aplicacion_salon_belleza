@@ -14,13 +14,6 @@
 
             <div class="card mb-4 shadow border-0">
 
-                {{-- IMAGEN --}}
-                @if($s->imagen)
-                    <img src="{{ asset('storage/' . $s->imagen) }}" class="card-img-top" style="height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                @else
-                    <div class="bg-light text-muted d-flex align-items-center justify-content-center" style="height: 200px; border-top-left-radius: 10px; border-top-right-radius: 10px;">Sin imagen</div>
-                @endif
-
                 <div class="card-body text-center">
 
                     <h5 class="fw-bold">{{ $s->nombresServicio }}</h5>

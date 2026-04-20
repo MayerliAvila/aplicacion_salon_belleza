@@ -16,8 +16,7 @@ class Servicio extends Model
         'nombresServicio',
         'descripcion',
         'duracionMinuto',
-        'precio',
-        'imagen'
+        'precio'
     ];
 
     public function personales()

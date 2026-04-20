@@ -35,14 +35,8 @@ class ServicioController extends Controller
             'nombresServicio' => 'required|string|max:100',
             'descripcion'     => 'nullable|string|max:255',
             'duracionMinuto'  => 'required|integer|min:1',
-            'precio'          => 'required|numeric|min:0',
-            'imagen'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'precio'          => 'required|numeric|min:0'
         ]);
-
-        if ($request->hasFile('imagen')) {
-            $path = $request->file('imagen')->store('servicios', 'public');
-            $validated['imagen'] = $path;
-        }
 
         Servicio::create($validated);
         return redirect()->route('servicio.index')->with('success', 'Servicio creado correctamente.');
@@ -75,20 +69,10 @@ class ServicioController extends Controller
             'nombresServicio' => 'required|string|max:100',
             'descripcion'     => 'nullable|string|max:255',
             'duracionMinuto'  => 'required|integer|min:1',
-            'precio'          => 'required|numeric|min:0',
-            'imagen'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'precio'          => 'required|numeric|min:0'
         ]);
 
         $servicio = Servicio::findOrFail($id);
-
-        if ($request->hasFile('imagen')) {
-            // Eliminar imagen anterior si existe
-            if ($servicio->imagen) {
-                Storage::disk('public')->delete($servicio->imagen);
-            }
-            $path = $request->file('imagen')->store('servicios', 'public');
-            $validated['imagen'] = $path;
-        }
 
         $servicio->update($validated);
 
@@ -101,10 +85,6 @@ class ServicioController extends Controller
     public function destroy(string $id)
     {
         $servicio = Servicio::findOrFail($id);
-        
-        if ($servicio->imagen) {
-            Storage::disk('public')->delete($servicio->imagen);
-        }
 
         $servicio->delete();
 
